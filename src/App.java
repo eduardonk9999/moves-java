@@ -10,22 +10,22 @@ public class App {
      * @throws Exception
      */
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
-
         //https://pokeapi.glitch.me/v1/pokemon/1
         
         // fazer uma conexão HTTP e buscar os dados
-        String url = "https://imdb-api.com/en/API/Top250Movies/k_3q5hkc0z";
+        String url = "https://pokeapi.glitch.me/v1/pokemon/1";
         URI endereco = URI.create(url);
         var client = HttpClient.newHttpClient();
         var request = HttpRequest.newBuilder(endereco).GET().build();
-        HttpResponse<String> send = client.send(request, BodyHandlers.ofString());
+        HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
+        String body = response.body();
+        System.out.println(body);
 
         // pegar só os dados que interessam (titulo, poster, classificacao)
 
 
         // exibir e manipular os dados
-        
+        //
 
     }
 }
